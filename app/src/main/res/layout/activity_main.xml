@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.example.no24519.projectchat.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/p1"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/p2"
+        android:layout_below="@+id/friends_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <include
+        android:id="@+id/friends_toolbar"
+        layout="@layout/app_bar_layout"></include>
+
+    <Button
+        android:id="@+id/main_random_chat_btn"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounde"
+        android:text="開始配對"
+        android:textColor="@color/White"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/main_user_to_friends_btn"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_alignStart="@+id/main_random_chat_btn"
+        android:layout_below="@+id/main_random_chat_btn"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounde"
+        android:text="好友清單"
+        android:textColor="@color/White"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/main_user_profile_btn"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_alignStart="@+id/main_user_to_friends_btn"
+        android:layout_below="@+id/main_user_to_friends_btn"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounde"
+        android:text="修改個人資料"
+        android:textColor="@color/White"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>

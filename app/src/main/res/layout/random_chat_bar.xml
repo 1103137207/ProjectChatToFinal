@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Main1"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:id="@+id/random_add_friend_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@+id/random_exit"
+        android:layout_weight="1"
+        android:alpha="1"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    <TextView
+        android:id="@+id/random_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="4dp"
+        android:paddingTop="3dp"
+        android:text="EXIT"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+</RelativeLayout>
