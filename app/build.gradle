@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
-
+repositories{
+    mavenCentral()
+}
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -47,6 +49,7 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.2.4'
     compile 'com.google.android.gms:play-services-auth:10.2.4'
     testCompile 'junit:junit:4.12'
+    //compile 'com.crashlytics.sdk.android:crashlytics:2.2.4@aar'
 }
 
 
