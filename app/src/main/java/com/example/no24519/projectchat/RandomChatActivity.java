@@ -85,6 +85,7 @@ public class RandomChatActivity extends AppCompatActivity {
 
     private ProgressDialog mProgress;
 
+    private String messageshow="message/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +153,7 @@ public class RandomChatActivity extends AppCompatActivity {
             builder.setPositiveButton("確認", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                    //尚未決定呈現方式
                 }
             });
             builder.show();
@@ -173,8 +174,8 @@ public class RandomChatActivity extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(message)){
 
-            String current_user_ref = "messages/" + mCurrentUserId + "/" + mChatUser;
-            String chat_user_ref = "messages/" + mChatUser + "/" + mCurrentUserId;
+            String current_user_ref = messageshow + mCurrentUserId + "/" + mChatUser;
+            String chat_user_ref = messageshow + mChatUser + "/" + mCurrentUserId;
 
             DatabaseReference user_message_push = mRootRef.child("messages")
                     .child(mCurrentUserId).child(mChatUser).push();
@@ -225,8 +226,8 @@ public class RandomChatActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
-            final String current_user_ref = "messages/" + mCurrentUserId + "/" + mChatUser;
-            final String chat_user_ref = "messages/" + mChatUser + "/" + mCurrentUserId;
+            final String current_user_ref = messageshow + mCurrentUserId + "/" + mChatUser;
+            final String chat_user_ref = messageshow+ mChatUser + "/" + mCurrentUserId;
 
             DatabaseReference user_message_push = mRootRef.child("messages")
                     .child(mCurrentUserId).child(mChatUser).push();

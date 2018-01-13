@@ -78,6 +78,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private static final int GALLERY_PICK = 1;
 
+    private String imageString ="image" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +144,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String online = dataSnapshot.child("online").getValue().toString();
-                String image = dataSnapshot.child("image").getValue().toString();
+                String image = dataSnapshot.child(imageString).getValue().toString();
 
                 if(online.equals("true")) {
 
@@ -166,7 +167,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 
@@ -174,14 +175,14 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String image = dataSnapshot.child("image").getValue().toString();
+                String image = dataSnapshot.child(imageString).getValue().toString();
                 Picasso.with(ChatActivity.this).load(image).placeholder(R.drawable.default_avatar).into(mProfileImage);
 
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 
