@@ -79,6 +79,7 @@ public class ChatActivity extends AppCompatActivity {
     private static final int GALLERY_PICK = 1;
 
     private String imageString ="image" ;
+    private String messageString ="messages/" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +207,7 @@ public class ChatActivity extends AppCompatActivity {
 
                             if (databaseError != null){
 
-                                Log.d("CHAT_LOG",databaseError.getMessage().toString());
+                                //Log.d("CHAT_LOG",databaseError.getMessage().toString());
 
                             }
                         }
@@ -359,22 +360,22 @@ public class ChatActivity extends AppCompatActivity {
 
                 @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                //預設
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                //預設
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                //預設
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 
@@ -386,8 +387,8 @@ public class ChatActivity extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(message)){
 
-            String current_user_ref = "messages/" + mCurrentUserId + "/" + mChatUser;
-            String chat_user_ref = "messages/" + mChatUser + "/" + mCurrentUserId;
+            String current_user_ref = messageString + mCurrentUserId + "/" + mChatUser;
+            String chat_user_ref = messageString + mChatUser + "/" + mCurrentUserId;
 
             DatabaseReference user_message_push = mRootRef.child("messages")
                     .child(mCurrentUserId).child(mChatUser).push();
@@ -438,8 +439,8 @@ public class ChatActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
-            final String current_user_ref = "messages/" + mCurrentUserId + "/" + mChatUser;
-            final String chat_user_ref = "messages/" + mChatUser + "/" + mCurrentUserId;
+            final String current_user_ref = messageString + mCurrentUserId + "/" + mChatUser;
+            final String chat_user_ref = messageString + mChatUser + "/" + mCurrentUserId;
 
             DatabaseReference user_message_push = mRootRef.child("messages")
                     .child(mCurrentUserId).child(mChatUser).push();

@@ -85,7 +85,7 @@ public class RandomChatActivity extends AppCompatActivity {
 
     private ProgressDialog mProgress;
 
-    private String messageshow="message/";
+    private String messageshow="messages/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
