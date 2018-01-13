@@ -218,7 +218,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 
@@ -304,17 +304,17 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                //預設
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                //預設
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                //預設
             }
 
             @Override
