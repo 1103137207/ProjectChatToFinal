@@ -291,7 +291,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                 //--------------------UNFRIEND---------------------
                 if (mCurrent_state.equals(friends)){
-                    CharSequence options[] = new CharSequence[]{"查看好友資訊","好友聊天"};
                     AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
                     builder.setTitle("警告");
                     builder.setMessage("確定要刪除好友嗎?");
