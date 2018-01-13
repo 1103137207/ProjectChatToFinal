@@ -103,10 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser current_user = mAuth.getCurrentUser();
 
-        if(current_user != null) {
-
-
-        }
     }
 
     @Override

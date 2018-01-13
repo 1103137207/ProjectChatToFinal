@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView mProfileName,mProfileStatus,mProfileFreindCount;
+    private TextView mProfileName,mProfileStatus;
     private TextView mIntroductionStatus;
     private TextView mEmotionalStatus;
     private TextView mInterestStatus;
@@ -83,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         mInterestStatus = (TextView) findViewById(R.id.profile_interest_status);
         mEmotionalStatus = (TextView) findViewById(R.id.profile_emotional_status);
         mIntroductionStatus = (TextView) findViewById(R.id.profile_introduction_status);
-        mProfileFreindCount = (TextView) findViewById(R.id.profile_totalFriends);
+        //mProfileFreindCount = (TextView) findViewById(R.id.profile_totalFriends);
         mProfileSendReqBtn = (Button) findViewById(R.id.profile_send_req_btn);
         mDeclineBtn = (Button) findViewById(R.id.profile_decline_btn);
 
