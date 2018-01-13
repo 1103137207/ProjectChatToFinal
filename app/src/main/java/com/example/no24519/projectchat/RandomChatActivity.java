@@ -144,8 +144,6 @@ public class RandomChatActivity extends AppCompatActivity {
         mImageStorage = FirebaseStorage.getInstance().getReference();
 
 
-        try {
-            Thread.sleep(4000);
             mProgress.dismiss();
             AlertDialog.Builder builder = new AlertDialog.Builder(RandomChatActivity.this);
             builder.setTitle("系統訊息");
@@ -157,9 +155,7 @@ public class RandomChatActivity extends AppCompatActivity {
                 }
             });
             builder.show();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
 
     }
