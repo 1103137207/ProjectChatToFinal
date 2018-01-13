@@ -6,8 +6,8 @@ package com.example.no24519.projectchat;
 
 public class Friends {
 
-    public String date;
-    public String thumb_image;
+    private String date;
+    private String thumb_image;
 
     public Friends(){
 

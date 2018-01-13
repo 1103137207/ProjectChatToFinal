@@ -6,14 +6,14 @@ package com.example.no24519.projectchat;
 
 public class Users {
 
-    public String name;
-    public String image;
-    public String status;
-    public String thumb_image;
+    private String name;
+    private String image;
+    private String status;
+    private String thumb_image;
 
-    public String interest;
-    public String city;
-    public String introduction;
+    private String interest;
+    private String city;
+    private String introduction;
 
     public String getInterest() {
         return interest;
