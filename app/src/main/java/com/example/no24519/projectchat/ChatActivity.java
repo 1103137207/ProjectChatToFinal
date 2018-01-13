@@ -232,7 +232,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        /*mChatAddBtn.setOnClickListener(new View.OnClickListener() {
+        mChatAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -244,7 +244,7 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
-*/
+
 
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
