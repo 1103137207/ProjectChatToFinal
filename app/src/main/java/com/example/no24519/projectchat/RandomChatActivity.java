@@ -52,40 +52,21 @@ public class RandomChatActivity extends AppCompatActivity {
     //private String mChatUser;
     private Toolbar mToolbar;
 
-    private DatabaseReference mRootRef;
-
-    private ImageButton mAddFriend;
-    private TextView mChatExit;
-    private CircleImageView mProfileImage;
     private FirebaseAuth mAuth;
-    private String mCurrentUserId;
 
-    private ImageButton mChatAddBtn;
-    private ImageButton mChatSendBtn;
-    private EditText mChatMessageView;
 
     private RecyclerView mMessageList;
-    private SwipeRefreshLayout mRefreshLayout;
 
     private final List<Messages> messageList = new ArrayList<>();
     private LinearLayoutManager mLinearLayout;
     private MessageAdapter mAdapter;
 
-    private static final int TOTAL_ITEMS_TO_LOAD = 10;
-    private int mCurrentPage = 1;
 
-    private int itemPos = 0;
 
-    private String mLastKey = "";
-    private String mPrevKey = "";
 
-    private StorageReference mImageStorage;
-
-    private static final int GALLERY_PICK = 1;
 
     private ProgressDialog mProgress;
 
-    private String messageshow="messages/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,17 +78,13 @@ public class RandomChatActivity extends AppCompatActivity {
         mProgress.setMessage("開始配對中！請稍後...");
         
         mProgress.show();
-        mRootRef = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
-        mCurrentUserId = mAuth.getCurrentUser().getUid();
 
         mToolbar = (Toolbar) findViewById(R.id.chat_app_bar);
 
         setSupportActionBar(mToolbar);
 
-        mAddFriend = (ImageButton)findViewById(R.id.random_add_friend_btn);
-        mChatExit = (TextView)findViewById(R.id.random_exit);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -122,14 +99,10 @@ public class RandomChatActivity extends AppCompatActivity {
         actionBar.setCustomView(action_bar_view);
 
 
-        mChatAddBtn = (ImageButton) findViewById(R.id.chat_add_btn);
-        mChatSendBtn = (ImageButton) findViewById(R.id.chat_send_btn);
-        mChatMessageView = (EditText) findViewById(R.id.chat_message_view);
 
         mAdapter = new MessageAdapter(messageList);
 
         mMessageList = (RecyclerView) findViewById(R.id.message_list);
-        mRefreshLayout =(SwipeRefreshLayout)findViewById(R.id.message_swipe_layout);
         mLinearLayout = new LinearLayoutManager(this);
 
         mMessageList.setHasFixedSize(true);
@@ -141,7 +114,6 @@ public class RandomChatActivity extends AppCompatActivity {
         layoutManager.setStackFromEnd(true);
         mMessageList.setLayoutManager(layoutManager);
 
-        mImageStorage = FirebaseStorage.getInstance().getReference();
 
 
             mProgress.dismiss();
