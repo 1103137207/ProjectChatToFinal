@@ -147,7 +147,6 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String online = dataSnapshot.child("online").getValue().toString();
-                String image = dataSnapshot.child(imageString).getValue().toString();
 
                 if(online.equals("true")) {
 
@@ -207,9 +206,6 @@ public class ChatActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
-                            if (databaseError != null){
-
-                            }
                         }
                     });
 
