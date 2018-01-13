@@ -51,7 +51,7 @@ public class TestChat extends Application {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    //預設
                 }
             });
 

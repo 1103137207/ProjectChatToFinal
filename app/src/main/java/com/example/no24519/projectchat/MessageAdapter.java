@@ -130,7 +130,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 

@@ -131,7 +131,7 @@ public class FriendsActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        //預設
                     }
                 });
             }

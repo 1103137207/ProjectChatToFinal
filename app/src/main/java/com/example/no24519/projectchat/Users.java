@@ -50,7 +50,7 @@ public class Users {
     public String emotionalState;
 
     public Users(){
-
+        //物件
     }
 
     public String device_token;

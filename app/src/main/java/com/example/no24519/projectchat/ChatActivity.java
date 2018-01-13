@@ -79,7 +79,9 @@ public class ChatActivity extends AppCompatActivity {
     private static final int GALLERY_PICK = 1;
 
     private String imageString ="image" ;
-    private String messageString ="messages/" ;
+    private String messagetoString ="messages/";
+    private String messageString ="messages" ;
+    private String timestamp ="timestamp" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,7 +197,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     Map chatAddMap = new HashMap();
                     chatAddMap.put("seen",false);
-                    chatAddMap.put("timestamp", ServerValue.TIMESTAMP);
+                    chatAddMap.put(timestamp, ServerValue.TIMESTAMP);
 
                     Map chatUserMap = new HashMap();
                     chatAddMap.put("Chat/"+mCurrentUserId+"/"+mChatUser,chatAddMap);
@@ -263,7 +265,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void loadMoreMessages() {
 
-        DatabaseReference messageRef = mRootRef.child("messages").child(mCurrentUserId).child(mChatUser);
+        DatabaseReference messageRef = mRootRef.child(messageString).child(mCurrentUserId).child(mChatUser);
 
         Query messageQuery = messageRef.orderByKey().endAt(mLastKey).limitToLast(10);
 
@@ -329,7 +331,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void loadMessage() {
 
-        DatabaseReference messageRef = mRootRef.child("messages").child(mCurrentUserId).child(mChatUser);
+        DatabaseReference messageRef = mRootRef.child(messageString).child(mCurrentUserId).child(mChatUser);
 
         Query messageQuery = messageRef.limitToLast(mCurrentPage*TOTAL_ITEMS_TO_LOAD);
 
@@ -387,10 +389,10 @@ public class ChatActivity extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(message)){
 
-            String current_user_ref = messageString + mCurrentUserId + "/" + mChatUser;
-            String chat_user_ref = messageString + mChatUser + "/" + mCurrentUserId;
+            String current_user_ref = messagetoString + mCurrentUserId + "/" + mChatUser;
+            String chat_user_ref = messagetoString + mChatUser + "/" + mCurrentUserId;
 
-            DatabaseReference user_message_push = mRootRef.child("messages")
+            DatabaseReference user_message_push = mRootRef.child(messageString)
                     .child(mCurrentUserId).child(mChatUser).push();
 
             String push_id = user_message_push.getKey();
@@ -409,10 +411,10 @@ public class ChatActivity extends AppCompatActivity {
             mChatMessageView.setText("");
 
             mRootRef.child("Chat").child(mCurrentUserId).child(mChatUser).child("seen").setValue(true);
-            mRootRef.child("Chat").child(mCurrentUserId).child(mChatUser).child("timestamp").setValue(ServerValue.TIMESTAMP);
+            mRootRef.child("Chat").child(mCurrentUserId).child(mChatUser).child(timestamp).setValue(ServerValue.TIMESTAMP);
 
             mRootRef.child("Chat").child(mChatUser).child(mCurrentUserId).child("seen").setValue(false);
-            mRootRef.child("Chat").child(mChatUser).child(mCurrentUserId).child("timestamp").setValue(ServerValue.TIMESTAMP);
+            mRootRef.child("Chat").child(mChatUser).child(mCurrentUserId).child(timestamp).setValue(ServerValue.TIMESTAMP);
 
             mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
                 @Override
@@ -439,10 +441,10 @@ public class ChatActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
-            final String current_user_ref = messageString + mCurrentUserId + "/" + mChatUser;
-            final String chat_user_ref = messageString + mChatUser + "/" + mCurrentUserId;
+            final String current_user_ref = messagetoString + mCurrentUserId + "/" + mChatUser;
+            final String chat_user_ref = messagetoString + mChatUser + "/" + mCurrentUserId;
 
-            DatabaseReference user_message_push = mRootRef.child("messages")
+            DatabaseReference user_message_push = mRootRef.child(messageString)
                     .child(mCurrentUserId).child(mChatUser).push();
 
             final String push_id = user_message_push.getKey();

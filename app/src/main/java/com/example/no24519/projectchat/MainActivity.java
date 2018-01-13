@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mUserRandomChatBtn;
     private Button mUserFriendsBtn;
 
+    private String online = "online";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                mUserRef.child("online").setValue("true");
+                mUserRef.child(online).setValue("true");
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsIntent);
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         mUserRandomChatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mUserRef.child("online").setValue("true");
+                mUserRef.child(online).setValue("true");
                 Intent settingsIntent = new Intent(MainActivity.this, RandomChatActivity.class);
                 startActivity(settingsIntent);
             }
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
 
         }else{
-            mUserRef.child("online").setValue("true");
+            mUserRef.child(online).setValue("true");
         }
     }
 
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.main_logout_btn) {
-            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
+            mUserRef.child(online).setValue(ServerValue.TIMESTAMP);
             //logging out the user
             mAuth.signOut();
             //closing activity
