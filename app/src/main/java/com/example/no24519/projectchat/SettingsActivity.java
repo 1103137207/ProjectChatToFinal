@@ -112,7 +112,7 @@ public class SettingsActivity extends AppCompatActivity {
                             .placeholder(R.drawable.default_avatar).into(mDisplayImage, new Callback() {
                         @Override
                         public void onSuccess() {
-
+                            //如果沒有上傳照片則顯示預設
                         }
 
                         @Override
@@ -128,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //預設
             }
         });
 

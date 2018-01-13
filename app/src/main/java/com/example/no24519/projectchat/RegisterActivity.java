@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private Toolbar mToolbar;
-
+    private String Default = "default";
     private ProgressDialog mRefProgress;
 
     @Override
@@ -90,16 +90,17 @@ public class RegisterActivity extends AppCompatActivity {
 
                   String device_token = FirebaseInstanceId.getInstance().getToken();
 
+
                   HashMap <String,String> userMap = new HashMap<String, String>();
                   userMap.put("name",display_name);
                   userMap.put("status","測試狀態");
-                  userMap.put("image","default");
-                  userMap.put("thumb_image","default");
+                  userMap.put("image",Default);
+                  userMap.put("thumb_image",Default);
                   userMap.put("device_token",device_token);
-                  userMap.put("city","default");
-                  userMap.put("interest","default");
-                  userMap.put("emotional","default");
-                  userMap.put("introduction","default");
+                  userMap.put("city",Default);
+                  userMap.put("interest",Default);
+                  userMap.put("emotional",Default);
+                  userMap.put("introduction",Default);
 
                   mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                       @Override
