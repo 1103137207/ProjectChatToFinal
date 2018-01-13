@@ -49,7 +49,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RandomChatActivity extends AppCompatActivity {
 
 
-    private String mChatUser;
+    //private String mChatUser;
     private Toolbar mToolbar;
 
     private DatabaseReference mRootRef;
@@ -160,123 +160,6 @@ public class RandomChatActivity extends AppCompatActivity {
 
     }
 
-
-
-
-    private void sendMessage() {
-
-
-        String message = mChatMessageView.getText().toString();
-
-        if(!TextUtils.isEmpty(message)){
-
-            String current_user_ref = messageshow + mCurrentUserId + "/" + mChatUser;
-            String chat_user_ref = messageshow + mChatUser + "/" + mCurrentUserId;
-
-            DatabaseReference user_message_push = mRootRef.child("messages")
-                    .child(mCurrentUserId).child(mChatUser).push();
-
-            String push_id = user_message_push.getKey();
-
-            Map messageMap = new HashMap();
-            messageMap.put("message", message);
-            messageMap.put("seen", false);
-            messageMap.put("type", "text");
-            messageMap.put("time", ServerValue.TIMESTAMP);
-            messageMap.put("from", mCurrentUserId);
-
-            Map messageUserMap = new HashMap();
-            messageUserMap.put(current_user_ref + "/" + push_id, messageMap);
-            messageUserMap.put(chat_user_ref + "/" + push_id, messageMap);
-
-            mChatMessageView.setText("");
-
-            mRootRef.child("Chat").child(mCurrentUserId).child(mChatUser).child("seen").setValue(true);
-            mRootRef.child("Chat").child(mCurrentUserId).child(mChatUser).child("timestamp").setValue(ServerValue.TIMESTAMP);
-
-            mRootRef.child("Chat").child(mChatUser).child(mCurrentUserId).child("seen").setValue(false);
-            mRootRef.child("Chat").child(mChatUser).child(mCurrentUserId).child("timestamp").setValue(ServerValue.TIMESTAMP);
-
-            mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-                    if(databaseError != null){
-
-                        Log.d("CHAT_LOG", databaseError.getMessage().toString());
-
-                    }
-
-                }
-            });
-
-        }
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == GALLERY_PICK && resultCode == RESULT_OK){
-
-            Uri imageUri = data.getData();
-
-            final String current_user_ref = messageshow + mCurrentUserId + "/" + mChatUser;
-            final String chat_user_ref = messageshow+ mChatUser + "/" + mCurrentUserId;
-
-            DatabaseReference user_message_push = mRootRef.child("messages")
-                    .child(mCurrentUserId).child(mChatUser).push();
-
-            final String push_id = user_message_push.getKey();
-
-
-            StorageReference filepath = mImageStorage.child("message_images").child( push_id + ".jpg");
-
-            filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-
-                    if(task.isSuccessful()){
-
-                        @SuppressWarnings("VisibleForTests")String download_url = task.getResult().getDownloadUrl().toString();
-
-
-                        Map messageMap = new HashMap();
-                        messageMap.put("message", download_url);
-                        messageMap.put("seen", false);
-                        messageMap.put("type", "image");
-                        messageMap.put("time", ServerValue.TIMESTAMP);
-                        messageMap.put("from", mCurrentUserId);
-
-                        Map messageUserMap = new HashMap();
-                        messageUserMap.put(current_user_ref + "/" + push_id, messageMap);
-                        messageUserMap.put(chat_user_ref + "/" + push_id, messageMap);
-
-                        mChatMessageView.setText("");
-
-                        mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
-                            @Override
-                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-
-                                if(databaseError != null){
-
-                                    Log.d("CHAT_LOG", databaseError.getMessage().toString());
-
-                                }
-
-                            }
-                        });
-
-
-                    }
-
-                }
-            });
-
-        }
-
-    }
 
 }
 
