@@ -13,7 +13,7 @@ public class Users {
 
     private String interest;
     private String city;
-    public String introduction;
+    private String introduction;
 
     public String getInterest() {
         return interest;
