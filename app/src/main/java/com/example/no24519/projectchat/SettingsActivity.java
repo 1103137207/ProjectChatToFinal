@@ -91,7 +91,6 @@ public class SettingsActivity extends AppCompatActivity {
                 String name = dataSnapshot.child("name").getValue().toString();
                 final String image = dataSnapshot.child("image").getValue().toString();
                 String status = dataSnapshot.child("status").getValue().toString();
-                String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
                 String city = dataSnapshot.child("city").getValue().toString();
                 String interest = dataSnapshot.child("interest").getValue().toString();
                 String emotional = dataSnapshot.child("emotional").getValue().toString();
@@ -106,8 +105,6 @@ public class SettingsActivity extends AppCompatActivity {
 
 
                 if (!image.equals("default")){
-
-                    //Picasso.with(SettingsActivity.this).load(image).placeholder(R.drawable.default_avatar).into(mDisplayImage);
                     Picasso.with(SettingsActivity.this).load(image).networkPolicy(NetworkPolicy.OFFLINE)
                             .placeholder(R.drawable.default_avatar).into(mDisplayImage, new Callback() {
                         @Override
@@ -164,11 +161,6 @@ public class SettingsActivity extends AppCompatActivity {
 
                 startActivityForResult(Intent.createChooser(galleyIntent,"選擇照片"),GALLERY_PICK);
 
-                /*
-                        CropImage.activity()
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .start(SettingsActivity.this);
-                        */
 
             }
         });
@@ -270,8 +262,7 @@ public class SettingsActivity extends AppCompatActivity {
                 });
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-
-                Exception error = result.getError();
+                //有誤
 
             }
         }

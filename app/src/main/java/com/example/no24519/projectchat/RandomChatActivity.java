@@ -49,11 +49,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RandomChatActivity extends AppCompatActivity {
 
 
-    //private String mChatUser;
     private Toolbar mToolbar;
-
-    private FirebaseAuth mAuth;
-
 
     private RecyclerView mMessageList;
 
@@ -79,7 +75,6 @@ public class RandomChatActivity extends AppCompatActivity {
         
         mProgress.show();
 
-        mAuth = FirebaseAuth.getInstance();
 
         mToolbar = (Toolbar) findViewById(R.id.chat_app_bar);
 
