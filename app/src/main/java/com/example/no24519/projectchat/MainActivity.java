@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        FirebaseUser current_user = mAuth.getCurrentUser();
 
     }
 
