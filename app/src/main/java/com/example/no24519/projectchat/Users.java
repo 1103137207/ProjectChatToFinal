@@ -15,6 +15,7 @@ public class Users {
     private String city;
     private String introduction;
     private String emotionalState;
+
     private String device_token;
 
     public String getInterest() {
