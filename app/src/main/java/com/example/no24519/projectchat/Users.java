@@ -55,7 +55,7 @@ public class Users {
     }
 
 
-    public String getDevice_token() {
+    private String getDevice_token() {
         return device_token;
     }
 
