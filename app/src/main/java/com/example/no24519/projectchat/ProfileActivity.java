@@ -50,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private DatabaseReference mFriendReqDataBase;
     private DatabaseReference mFriendDateBase;
-    private DatabaseReference mNotificationDataBase;
     private DatabaseReference mRootRef;
 
     private String notfriend="not_friends";
@@ -69,7 +68,6 @@ public class ProfileActivity extends AppCompatActivity {
         mUsersDateBase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
         mFriendReqDataBase = FirebaseDatabase.getInstance().getReference().child("Friend_req");
         mFriendDateBase = FirebaseDatabase.getInstance().getReference().child("Friends");
-        mNotificationDataBase = FirebaseDatabase.getInstance().getReference("Notifications");
 
         mRootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -83,7 +81,6 @@ public class ProfileActivity extends AppCompatActivity {
         mInterestStatus = (TextView) findViewById(R.id.profile_interest_status);
         mEmotionalStatus = (TextView) findViewById(R.id.profile_emotional_status);
         mIntroductionStatus = (TextView) findViewById(R.id.profile_introduction_status);
-        //mProfileFreindCount = (TextView) findViewById(R.id.profile_totalFriends);
         mProfileSendReqBtn = (Button) findViewById(R.id.profile_send_req_btn);
         mDeclineBtn = (Button) findViewById(R.id.profile_decline_btn);
 
