@@ -14,6 +14,8 @@ public class Users {
     private String interest;
     private String city;
     private String introduction;
+    private String emotionalState;
+    private String device_token;
 
     public String getInterest() {
         return interest;
@@ -47,13 +49,10 @@ public class Users {
         this.emotionalState = emotionalState;
     }
 
-    public String emotionalState;
-
     public Users(){
         //物件
     }
 
-    public String device_token;
 
     public String getDevice_token() {
         return device_token;
